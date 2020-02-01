@@ -18,15 +18,8 @@ module.exports = () => {
     return map.set(name, require(file)(config, resolve));
   });
 
-  
-  map.forEach((v, key) => {
-    // css 配置
-    if (key === 'css') {
-      v('css', /\.css$/);
-    } else {
-      v()
-    }
-  })
+  console.log('map', map);
+  map.forEach(v => v());
   
   return config
 }
