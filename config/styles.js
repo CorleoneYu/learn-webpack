@@ -9,13 +9,16 @@ module.exports = (config, resolve) => {
         hmr: process.env.NODE_ENV === 'development',
         publicPath: '/'
       })
+
     normalRule
       .use('css-loader')
       .loader(require.resolve('css-loader'))
       .options({})
+
     normalRule
       .use('postcss-loader')
       .loader(require.resolve('postcss-loader'))
+
     if (loader) {
       const rs = require.resolve(loader)
       normalRule

@@ -18,7 +18,6 @@ module.exports = () => {
     return map.set(name, require(file)(config, resolve));
   });
 
-  console.log('map', map);
   map.forEach(v => v());
   
   return config
