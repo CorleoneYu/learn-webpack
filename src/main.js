@@ -17,6 +17,16 @@ import { cube, square } from './treeShaking';
 
 console.log(cube(2)) 
 
+const obj = {
+  foo: {
+    bar: {
+      baz: 2
+    }
+  }
+}
+
+console.log(obj.foo.bar?.baz); // 2
+
 const h2 = document.createElement('h2')
 h2.className = 'test'
 h2.innerText = 'testaaa'
