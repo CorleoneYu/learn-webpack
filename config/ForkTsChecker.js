@@ -1,7 +1,7 @@
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const ForkTsCheckerNotifierWebpackPlugin = require('fork-ts-checker-notifier-webpack-plugin')
 
-module.exports = ({ config }) => {
+module.exports = ({ config, resolve }) => {
   const chalk = require('chalk');
 
   return () => {
