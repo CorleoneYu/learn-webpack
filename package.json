@@ -3,13 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "dll": "cross-env NODE_ENV=production node build/dll.js --report",
-    "log": "conventional-changelog --config ./node_modules/vue-cli-plugin-commitlint/lib/log -i CHANGELOG.md -s -r 0",
-    "cz": "npm run log && git add . && git cz",
-    "dev": "cross-env NODE_ENV=development node build/dev.js",
-    "build": "cross-env NODE_ENV=production node build/build.js --report"
+  "bin": {
+    "box": "bin/box.js"
   },
+  "scripts": {
+    "log": "conventional-changelog --config ./node_modules/vue-cli-plugin-commitlint/lib/log -i CHANGELOG.md -s -r 0",
+    "cz": "npm run log && git add . && git cz"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "",
+  "license": "ISC",
   "sideEffects": true,
   "dependencies": {
     "@babel/cli": "^7.6.0",
@@ -45,6 +50,8 @@
     "autoprefixer": "^9.7.2",
     "babel-plugin-transform-imports": "^2.0.0",
     "cache-loader": "^4.1.0",
+    "chalk": "^3.0.0",
+    "commander": "^4.1.1",
     "commitizen": "^4.0.3",
     "commitlint": "^8.2.0",
     "conventional-changelog-cli": "^2.0.28",
@@ -73,10 +80,5 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
-  },
-  "keywords": [
-    "webpack"
-  ],
-  "author": "",
-  "license": "ISC"
+  }
 }

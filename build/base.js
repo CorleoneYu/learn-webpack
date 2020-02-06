@@ -1,13 +1,13 @@
 const { findSync } = require('../lib');
 const Config = require('webpack-chain');
 const config = new Config();
-const files = findSync('config');
+const files = findSync('../config');
 const path = require('path');
 const resolve = p => {
   return path.join(process.cwd(), p);
 }
 
-module.exports = () => {
+module.exports = (options) => {
   // 构建出 webpack 的 config Map
   const map = new Map();
 
@@ -15,7 +15,7 @@ module.exports = () => {
     const name = file.split('/')
     .pop()
     .replace('.js', '');
-    return map.set(name, require(file)(config, resolve));
+    return map.set(name, require(file)({config, resolve, options}));
   });
 
   map.forEach(v => v());

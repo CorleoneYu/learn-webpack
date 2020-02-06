@@ -1,4 +1,4 @@
-module.exports = (config, resolve) => {
+module.exports = ({ config }) => {
   return () => {
     // 提取公用库
     config.optimization.splitChunks({

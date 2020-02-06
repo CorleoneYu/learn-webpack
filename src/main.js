@@ -25,8 +25,6 @@ const obj = {
   }
 }
 
-console.log(obj.foo.bar?.baz); // 2
-
 const h2 = document.createElement('h2')
 h2.className = 'test'
 h2.innerText = 'testaaa'

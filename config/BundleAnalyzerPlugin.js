@@ -1,13 +1,13 @@
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-module.exports = (config, resolve) => {
+module.exports = ({ config, options }) => {
   return () => {
-    if (process.argv.includes('--report')) {
+    if (options.report) {
       config.plugin('BundleAnalyzerPlugin').use(BundleAnalyzerPlugin, [
         {
           analyzerMode: 'static',
         },
-      ])
+      ]);
     }
-  }
-}
+  };
+};
