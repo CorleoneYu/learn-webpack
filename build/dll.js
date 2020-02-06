@@ -13,11 +13,18 @@ module.exports = function(options) {
     BundleAnalyzerPlugin();
   }
 
+  if (options.dll && !Array.isArray(options.dll.venders)) {
+    throw console.log('请添加 dll.entry');
+  }
+
+  options.dll.venders.forEach((vender) => {
+    config
+      .entry('dll')
+      .add(vender)
+      .end();
+  });
+
   config
-    .entry('dll')
-    .add('vue')
-    .add('react')
-    .end()
     .set('mode', 'production')
     .output.path(dllPath)
     .filename('[name].js')

@@ -4,6 +4,9 @@ module.exports = function (config) {
     output: 'dist',
     publicPath: '/common/',
     port: 8888,
+    dll: {
+      venders: ['react'],
+    },  
     pages: {
       index: {
         entry: 'src/main.js',
