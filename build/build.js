@@ -7,6 +7,7 @@ module.exports = function(options) {
   // 删除 dist 目录
   options.clear && rimraf.sync(path.join(process.cwd(), 'dist'));
 
+  options.publicPath = './';
   const config = require('./base')(options);
   const webpack = require('webpack');
   const spinner = ora('开始构建项目...');
