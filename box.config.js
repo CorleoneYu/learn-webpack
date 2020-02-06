@@ -1,7 +1,7 @@
 module.exports = function (config) {
   return {
     entry: 'src/main.js',
-    dist: 'dist',
+    output: 'dist',
     publicPath: '/common/',
     port: 8888,
     pages: {

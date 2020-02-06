@@ -1,16 +1,18 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
+const path = require('path');
 
 module.exports = ({ config, resolve, options }) => {
-  let template = 'public/index.html',
-    filename = 'index.html',
-    entry = '',
-    publicPath = '';
+  let template = path.join(__dirname, '..', 'public/index.html'),
+    publicPath = options.publicPath || '/',
+    filename =  options.filename || 'index.html';
 
   if (options.name) {
     const name = options.name;
+    entry = options.pages[name].template;
     filename = options.pages[name].filename;
     publicPath = options.pages[name].publicPath;
+    template = options.pages[name].template;
   }
 
   return () => {
